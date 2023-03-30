@@ -483,8 +483,7 @@
       "client" : "account-console",
       "roles" : [ "manage-account" ]
     } ]
-  },C:\Users\geert\Documents\GitHub\test-script\testscript\jsonenvfilescript.sh
-C:\Users\geert\Documents\GitHub\test-script\testscript\test2.sh
+  },
   "clients" : [ {
     "id" : "043f3b1d-595d-4fe1-b984-7fc13582cdf2",
     "clientId" : "account",
@@ -895,7 +894,6 @@ C:\Users\geert\Documents\GitHub\test-script\testscript\test2.sh
     }, {
       "id" : "a26c720f-7075-49d3-bec7-447cd4555420",
       "name" : "Client IP Address",
-      "protocol" : "openid-connect",
       "protocol" : "openid-connect",
       "protocolMapper" : "oidc-usersessionmodel-note-mapper",
       "consentRequired" : false,
