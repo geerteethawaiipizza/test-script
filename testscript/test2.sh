@@ -11,7 +11,7 @@
 # # echo ""
 # # jq -r '.clients[] | select(.clientId == "esdl-mapeditor") | .rootUrl' keycloak/esdl-mapeditor-realm.json
 # # mapeditorrootUrl=$(jq -r '.clients[] | select(.clientId == "esdl-mapeditor") | .rootUrl' keycloak/esdl-mapeditor-realm.json)
-
+export $(grep -v '^#' .env | xargs)
 # # # Replace the rootUrl with the one from the .env file
 # # sed -i "s|$mapeditorrootUrl|$MAPEDITOR_ROOT_URL|g" keycloak/esdl-mapeditor-realm.json
 # # echo "naar:"
@@ -38,6 +38,6 @@ ROOT_URL="https://dashboardtest.essim.online"
 # #   $JSON_FILE > tmp.json && mv tmp.json $JSON_FILE
 
 
-jq --arg client_id "$CLIENT_ID" --arg new_url "$ROOT_URL" \
-  '.clients[] | select(.id == $client_id) | .rootUrl = $new_url' \
+jq --arg client_id "$CLIENT_ID" --arg grafanarootUrl "$ROOT_URL" \
+  '.clients[] | select(.id == $client_id) | .rootUrl = $grafanarootUrl' \
   $JSON_FILE > tmp.json && mv tmp.json $JSON_FILE
