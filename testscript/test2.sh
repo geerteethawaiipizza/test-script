@@ -1,7 +1,9 @@
 #!/bin/bash
-
+source .env
 # Read the rootUrl value from the JSON file
-rootUrl=$(jq -r '.clients[] | select(.clientId == "account-console") | .rootUrl' keycloak/client.json)
+jq -r '.clients[] | select(.clientId == "account-console") | .rootUrl' keycloak/esdl-mapeditor-realm.json
+
+rootUrl=$(jq -r '.clients[] | select(.clientId == "account-console") | .rootUrl' keycloak/esdl-mapeditor-realm.json)
 
 # Replace the rootUrl with the one from the .env file
-sed -i "s|$rootUrl|$ROOT_URL|g" keycloak/client.json
+sed -i "s|$rootUrl|$ROOT_URL|g" keycloak/esdl-mapeditor-realm.json
