@@ -7,7 +7,7 @@ DriveUrls () {
     oldrootUrl=$(jq -r '.clients[] | select(.clientId == "cdo-mondaine") | .rootUrl' keycloak/esdl-mapeditor-realm.json)
     oldbaseUrl=$(jq -r '.clients[] | select(.clientId == "cdo-mondaine") | .baseUrl' keycloak/esdl-mapeditor-realm.json)
     oldredirectUris=$(jq -r '.clients[] | select(.clientId == "cdo-mondaine") | .redirectUris' keycloak/esdl-mapeditor-realm.json)
-    echo "Old value of ESDLDriverootUrl: $newrootUrl" 
+    echo "Old value of ESDLDriverootUrl: $oldrootUrl" 
 
     # Replace the Urls of ESDLdrive value with the one from the .env file
     sed -i "s#\(\"rootUrl\" : \"\).*\(\",\)#\1${DRIVE_ROOT_URL}\2#" keycloak/esdl-mapeditor-realm.json
