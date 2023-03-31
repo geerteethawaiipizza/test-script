@@ -4,7 +4,7 @@
 source .env
 
 # Get the rootUrl value from the JSON file
-Echo "Old value:"
+echo "Old value:"
 rootUrl=$(jq -r '.clients[] | select(.clientId == "essim-dashboard") | .rootUrl' keycloak/esdl-mapeditor-realm.json)
 
 # Replace the rootUrl value with the one from the .env file
