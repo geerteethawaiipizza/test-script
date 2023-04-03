@@ -14,7 +14,9 @@ DriveUrls () {
     sed -i "s#\(\"rootUrl\" : \"\).*\(\",\)#\1${DRIVE_ROOT_URL}\2#" keycloak/esdl-mapeditor-realm.json
     sed -i "s#\(\"baseUrl\" : \"\).*\(\",\)#\1${DRIVE_BASE_URL}\2#" keycloak/esdl-mapeditor-realm.json
     # sed -i "s|\(\"redirectUris\" : \[\)\"https://drive.essim.online/\\*\"|\1\"${DRIVE_REDIRECT_URI}\"|" keycloak/client-list.json
-    sed -i "s|\"\(${oldredirectUris//\//\\/}\)\"|\"${DRIVE_REDIRECT_URI//\//\\/}\"|g" keycloak/esdl-mapeditor-realm.json
+    # sed -i "s|\"\(${oldredirectUris//\//\\/}\)\"|\"${DRIVE_REDIRECT_URI//\//\\/}\"|g" keycloak/esdl-mapeditor-realm.json
+    sed -i "s|\"${oldredirectUris//\//\\/}\"|\"${DRIVE_REDIRECT_URI//\//\\/}\"|g" keycloak/esdl-mapeditor-realm.json
+
 
     newrootUrl=$(jq -r '.clients[] | select(.clientId == "cdo-mondaine") | .rootUrl' keycloak/esdl-mapeditor-realm.json)
     newbaseUrl=$(jq -r '.clients[] | select(.clientId == "cdo-mondaine") | .baseUrl' keycloak/esdl-mapeditor-realm.json)
