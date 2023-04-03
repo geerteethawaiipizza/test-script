@@ -19,6 +19,7 @@ DriveUrls () {
     sed -i "0,|\"\(${oldredirectUris//\//\\/}\)\"|{s||\"${DRIVE_REDIRECT_URI//\//\\/}\"|;}" keycloak/esdl-mapeditor-realm.json
 
 
+
     newrootUrl=$(jq -r '.clients[] | select(.clientId == "cdo-mondaine") | .rootUrl' keycloak/esdl-mapeditor-realm.json)
     newbaseUrl=$(jq -r '.clients[] | select(.clientId == "cdo-mondaine") | .baseUrl' keycloak/esdl-mapeditor-realm.json)
     newredirectUris=$(jq -r '.clients[] | select(.clientId == "cdo-mondaine") | .redirectUris[0]' keycloak/esdl-mapeditor-realm.json)
