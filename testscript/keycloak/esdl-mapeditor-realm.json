@@ -619,7 +619,7 @@
     "alwaysDisplayInConsole" : false,
     "clientAuthenticatorType" : "client-secret",
     "secret" : "329ab44b-087b-44d2-89b7-da139d32a7b1",
-    "redirectUris" : [ "https://drive.essim.online/", "https://localhost:9443/*" ],
+    "redirectUris" : [ "https://drive.essim.online/*", "https://localhost:9443/*" ],
     "webOrigins" : [ "+" ],
     "notBefore" : 0,
     "bearerOnly" : false,
