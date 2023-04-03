@@ -18,8 +18,7 @@ DriveUrls () {
     # sed -i "s|\"${oldredirectUris//\//\\/}\"|\"${DRIVE_REDIRECT_URI//\//\\/}\"|g" keycloak/esdl-mapeditor-realm.json
     # sed -i "0,\|\"${oldredirectUris//\//\\/}\"|{s||\"${DRIVE_REDIRECT_URI//\//\\/}\"|;}" keycloak/esdl-mapeditor-realm.json
     # sed -i "s#\(\"redirectUris\" : \[\)\"${redirectUri//\//\\/}\"\(.*\)#\1\"${DRIVE_REDIRECT_URI//\//\\/}\"\2#" keycloak/esdl-mapeditor-realm.json
-    DRIVE_REDIRECT_URI1=$(echo "$DRIVE_REDIRECT_URI" | sed 's/[\/&]/\\&/g')
-    sed -i "0,#\"\(${oldredirectUris//\//\\/}\)\"#{s##\"${DRIVE_REDIRECT_URI1//\//\\/}\"#;}" keycloak/esdl-mapeditor-realm.json
+    sed -i "s|$redirectUris|$DRIVE_REDIRECT_URI|g" keycloak/esdl-mapeditor-realm.json
 
 
 
