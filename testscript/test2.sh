@@ -6,7 +6,7 @@ source .env
 DriveUrls () {
     oldrootUrl=$(jq -r '.clients[] | select(.clientId == "cdo-mondaine") | .rootUrl' keycloak/esdl-mapeditor-realm.json)
     oldbaseUrl=$(jq -r '.clients[] | select(.clientId == "cdo-mondaine") | .baseUrl' keycloak/esdl-mapeditor-realm.json)
-    redirectUris=$(jq -r '.clients[] | select(.clientId == "cdo-mondaine") | .redirectUris[0]' keycloak/esdl-mapeditor-realm.json)
+    oldredirectUris=$(jq -r '.clients[] | select(.clientId == "cdo-mondaine") | .redirectUris[0]' keycloak/esdl-mapeditor-realm.json)
     echo "Old value of ESDLDriverootUrl: $oldrootUrl" 
     echo "Old value of ESDLDrivebaseUrl: $oldbaseUrl"
     echo "Old value of ESDLDriveredirectUris: $oldredirectUris"
