@@ -36,7 +36,7 @@ MapeditorUrls () {
     echo "Old value of ESDLMapeditorredirectUris: $oldredirectUris"
 
     # Replace the Urls of ESDLdrive value with the one from the .env file
-    sed -i "s#\(\"oldrootUrl\" : \"\).*\(\",\)#\1${DRIVE_ROOT_URL}\2#" keycloak/esdl-mapeditor-realm.json
+    sed -i "s#\(\"oldrootUrl\" : \"\).*\(\",\)#\1${MAPEDITOR_ROOT_URL}\2#" keycloak/esdl-mapeditor-realm.json
     sed -i "s#\(\"oldredirectUris\" : \"\).*\(\",\)#\1$MAPEDITOR_REDIRECT_URL}\2#" keycloak/esdl-mapeditor-realm.json
 
     #replaces all instances of the value $oldredirectUris so will also change other variables,
