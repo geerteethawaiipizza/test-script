@@ -13,15 +13,9 @@ DriveUrls () {
     # Replace the Urls of ESDLdrive value with the one from the .env file
     sed -i "s#\(\"rootUrl\" : \"\).*\(\",\)#\1${DRIVE_ROOT_URL}\2#" keycloak/esdl-mapeditor-realm.json
     sed -i "s#\(\"baseUrl\" : \"\).*\(\",\)#\1${DRIVE_BASE_URL}\2#" keycloak/esdl-mapeditor-realm.json
-    # sed -i "s|\(\"redirectUris\" : \[\)\"https://drive.essim.online/\\*\"|\1\"${DRIVE_REDIRECT_URI}\"|" keycloak/client-list.json
-    # sed -i "s|\"\(${oldredirectUris//\//\\/}\)\"|\"${DRIVE_REDIRECT_URI//\//\\/}\"|g" keycloak/esdl-mapeditor-realm.json
-    # sed -i "s|\"${oldredirectUris//\//\\/}\"|\"${DRIVE_REDIRECT_URI//\//\\/}\"|g" keycloak/esdl-mapeditor-realm.json
-    # sed -i "0,\|\"${oldredirectUris//\//\\/}\"|{s||\"${DRIVE_REDIRECT_URI//\//\\/}\"|;}" keycloak/esdl-mapeditor-realm.json
-    # sed -i "s#\(\"redirectUris\" : \[\)\"${redirectUri//\//\\/}\"\(.*\)#\1\"${DRIVE_REDIRECT_URI//\//\\/}\"\2#" keycloak/esdl-mapeditor-realm.json
+    #replaces all instances of the value $oldredirectUris so will also change other variables,
+    #but shouldnt be a problem since old base url and old redirectUri share the same value:
     sed -i "s|$oldredirectUris|$DRIVE_REDIRECT_URI|g" keycloak/esdl-mapeditor-realm.json
-    #sed -i "s|$oldredirectUris|${DRIVE_REDIRECT_URI%/}/[^/]*|g" keycloak/esdl-mapeditor-realm.json
-    # sed -i "s|$oldredirectUris|${DRIVE_REDIRECT_URI%/*}/*|g" keycloak/esdl-mapeditor-realm.json
-    #sed -i "s|$oldredirectUris|${DRIVE_REDIRECT_URI%/*}/[^/]*|g" keycloak/esdl-mapeditor-realm.json
 
 
 
