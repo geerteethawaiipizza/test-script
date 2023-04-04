@@ -41,7 +41,7 @@ MapeditorUrls () {
 
     #replaces all instances of the value $oldredirectUris so will also change other variables,
     #but shouldnt be a problem since old base url and old redirectUri share the same value:
-    sed -i "s|$oldredirectUris|$MAPEDITOR_REDIRECT_URL|g" keycloak/esdl-mapeditor-realm.json
+    #sed -i "s|$oldredirectUris|$MAPEDITOR_REDIRECT_URL|g" keycloak/esdl-mapeditor-realm.json
     newrootUrl=$(jq -r '.clients[] | select(.clientId == "esdl-mapeditor") | .rootUrl' keycloak/esdl-mapeditor-realm.json)
     newredirectUris=$(jq -r '.clients[] | select(.clientId == "esdl-mapeditor") | .redirectUris' keycloak/esdl-mapeditor-realm.json)
     
