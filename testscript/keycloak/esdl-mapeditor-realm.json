@@ -794,7 +794,7 @@
     "id" : "4d2874c8-1177-4cd4-991f-9a62ce88db03",
     "clientId" : "esdl-mapeditor",
     "name" : "ESDL Map Editor Client",
-    "rootUrl" : "https://mapeditor.essim.online/",
+    "rootUrl" : "localhost",
     "adminUrl" : "",
     "baseUrl" : "",
     "surrogateAuthRequired" : false,
