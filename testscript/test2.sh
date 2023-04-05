@@ -29,17 +29,17 @@ DriveUrls () {
 }
 
 MapeditorUrls () {
-    oldrootUrl1=$(jq -r '.clients[] | select(.clientId == "esdl-mapeditor") | .rootUrl' keycloak/esdl-mapeditor-realm.json)
-    oldredirectUris1=$(jq -r '.clients[] | select(.clientId == "esdl-mapeditor") | .redirectUris' keycloak/esdl-mapeditor-realm.json)
+    oldrootUrl=$(jq -r '.clients[] | select(.clientId == "esdl-mapeditor") | .rootUrl' keycloak/esdl-mapeditor-realm.json)
+    oldredirectUris=$(jq -r '.clients[] | select(.clientId == "esdl-mapeditor") | .redirectUris' keycloak/esdl-mapeditor-realm.json)
     
     echo "Old value of ESDLMapeditorrootUrl: $oldrootUrl1" 
     echo "Old value of ESDLMapeditorredirectUris: $oldredirectUris1"
 
     # Replace the Urls of ESDLdrive value with the one from the .env file
-    # sed -i "s#\(\"oldrootUrl1\" : \"\).*\(\",\)#\1${MAPEDITOR_ROOT_URL}\2#" keycloak/esdl-mapeditor-realm.json
-    # sed -i "s#\(\"oldredirectUris1\" : \"\).*\(\",\)#\1$MAPEDITOR_REDIRECT_URL}\2#" keycloak/esdl-mapeditor-realm.json
-    sed -i "s#\(\"rootUrl\" : \"${oldrootUrl1}\",\)#\1${MAPEDITOR_ROOT_URL}\2#" keycloak/esdl-mapeditor-realm.json
-    sed -i "s#\(\"redirectUris\" : \[\"${oldredirectUris1}\"\],\)#\1\[\"${MAPEDITOR_REDIRECT_URL}\"\]#g" keycloak/esdl-mapeditor-realm.json 
+    sed -i "s#\(\"oldrootUrl\" : \"\).*\(\",\)#\1${MAPEDITOR_ROOT_URL}\2#" keycloak/esdl-mapeditor-realm.json
+    sed -i "s#\(\"oldredirectUris\" : \"\).*\(\",\)#\1$MAPEDITOR_REDIRECT_URL}\2#" keycloak/esdl-mapeditor-realm.json
+    # sed -i "s#\(\"rootUrl\" : \"${oldrootUrl1}\",\)#\1${MAPEDITOR_ROOT_URL}\2#" keycloak/esdl-mapeditor-realm.json
+    # sed -i "s#\(\"redirectUris\" : \[\"${oldredirectUris1}\"\],\)#\1\[\"${MAPEDITOR_REDIRECT_URL}\"\]#g" keycloak/esdl-mapeditor-realm.json 
 
 
     #replaces all instances of the value $oldredirectUris so will also change other variables,
