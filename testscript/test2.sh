@@ -37,7 +37,7 @@ MapeditorUrls () {
 
     # Replace the Urls of ESDLdrive value with the one from the .env file
     sed -i "s#\(\"oldrootUrl\" : \"\).*\(\",\)#\1${MAPEDITOR_ROOT_URL}\2#" keycloak/esdl-mapeditor-realm.json
-    sed -i "s#\(\"oldredirectUris\" : \"\).*\(\",\)#\1$MAPEDITOR_REDIRECT_URL}\2#" keycloak/esdl-mapeditor-realm.json
+    sed -i "s#\(\"oldredirectUris\" : \"\).*\(\",\)#\1${MAPEDITOR_REDIRECT_URL}\2#" keycloak/esdl-mapeditor-realm.json
     # sed -i "s#\(\"rootUrl\" : \"${oldrootUrl1}\",\)#\1${MAPEDITOR_ROOT_URL}\2#" keycloak/esdl-mapeditor-realm.json
     # sed -i "s#\(\"redirectUris\" : \[\"${oldredirectUris1}\"\],\)#\1\[\"${MAPEDITOR_REDIRECT_URL}\"\]#g" keycloak/esdl-mapeditor-realm.json 
 
