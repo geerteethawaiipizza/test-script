@@ -794,7 +794,7 @@
     "id" : "4d2874c8-1177-4cd4-991f-9a62ce88db03",
     "clientId" : "esdl-mapeditor",
     "name" : "ESDL Map Editor Client",
-    "rootUrl" : "https://mapeditor.essim.online/",
+    "rootUrl" : "localhost",
     "adminUrl" : "",
     "baseUrl" : "",
     "surrogateAuthRequired" : false,
@@ -947,7 +947,7 @@
   }, {
     "id" : "603d98fb-fd82-446a-aec4-03abc7a0ebd4",
     "clientId" : "essim-dashboard",
-    "rootUrl" : "https://dashboard.essim.online",
+    "rootUrl" : "https://dashboardtestdingetje.essim.online",
     "adminUrl" : "https://dashboard.essim.online",
     "surrogateAuthRequired" : false,
     "enabled" : true,
